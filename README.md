@@ -49,24 +49,27 @@
 
 ## Deliverables:
 
-- Fully configured WAF (ModSecurity) VM filtering traffic
-- Reverse proxy VM forwarding traffic to backend services
-- Wazuh server for real-time monitoring and alerting
+- Dedicated Wazuh server for real-time monitoring and alerting
 - Isolated internal backend services connected via Proxmox network bridges
 - Hacking lab environment for red team emulation
+- Atmoic red to emulate red team attacks
 
 ## Tasks and Resource Allocation
 
+Resources have been allocated to 2 different machines due to ease of use and resource requirements
+
+### Proxmox Machine
 | Task | RAM Usage | Storage Usage | CPU Usage | Notes |
 |------|-----------|---------------|-----------|-------|
-| Deploy WAF VM (ModSecurity) | 2 GB | 20 GB | 1 core | Light traffic filtering load |
-| Set up Reverse Proxy VM (Nginx) | 2 GB | 15 GB | 1 core | Low CPU demand unless traffic spikes |
 | Install Wazuh Server | 4 GB | 30 GB | 2 cores | For security monitoring and alerting |
 | Create internal network bridges | N/A | N/A | N/A | Network configuration in Proxmox |
-| Configure hacking lab (Kali Linux) | 4 GB | 20 GB | 1 core | Penetration testing and hacking tools |
-| Metasploitable VM | 1 GB | 10 GB | 1 core | Lightweight vulnerable system |
 | Vulnerable Windows 10 VM | 8 GB | 40 GB | 2 cores | For red team attack emulation |
 | **TOTAL** | **21 GB** | **135 GB** | **8 cores** | Within available resources |
+
+### Personal Machine
+| Task | RAM Usage | Storage Usage | CPU Usage | Notes |
+|------|-----------|---------------|-----------|-------|
+| Configure hacking lab (Kali Linux) | 4 GB | 20 GB | 1 core | Penetration testing and hacking tools |
 
 ## Closing Checklist
 
