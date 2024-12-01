@@ -12,6 +12,7 @@
 ## 🏗️ Infrastructure Architecture Diagram
 
 ![Proxmox Infrastructure Topology](./assets/infrastructure-topology.svg)
+![Proxmox Network Topology](./assets/NetworkTopology.png)
 
 ### Cluster Breakdown
 
@@ -29,7 +30,7 @@
 #### 3. Web and Application Cluster
 - Website Hosting
 - [Heimdall](https://github.com/linuxserver/Heimdall) - Dashboard
-- [Tailgate](https://tailscale.com/) - Access Management
+- [Tailscale](https://tailscale.com/) - Access Management
 - [Windmill](https://www.windmill.dev/) - SOAR Platform
 
 ## 🚀 Deployment Strategy
