@@ -1,83 +1,90 @@
-# Project Summary
+# Home Lab Proxmox Server Infrastructure
 
-**Project name:** Proxmox WAF, Reverse Proxy, and Security Infrastructure
+## 🖥️ Server Specifications
+- **RAM:** 64 GB
+- **CPU:** 56 cores (24 cores, 2 threads per core)
+- **Storage:**
+  - 2 x 1 TB HDD (RAID 1 - Long-term Backups)
+  - 2 x 512 GB SSD (RAID 1)
+  - 1 x 256 GB SSD NVME (Snapshot Storage)
+  - 1 x 1 TB NVME (Primary Proxmox Installation and VM/Container Host)
 
-**Project goal:** To design and deploy a network security architecture using WAF (ModSecurity), reverse proxy (Nginx), Wazuh server for security monitoring, and backend services, all hosted on a Proxmox environment.
+## 🏗️ Infrastructure Architecture Diagram
 
-## Objectives:
+![Proxmox Infrastructure Topology](./assets/infrastructure-topology.svg)
 
-- Build a WAF using ModSecurity to filter incoming traffic
-- Deploy a reverse proxy (Nginx) to route clean traffic to backend services
-- Set up Wazuh for security monitoring and alerts
-- Isolate backend services using an internal network bridge to secure the internal architecture
-- Create a hacking lab with Kali Linux and vulnerable VMs for red team emulation (Metasploitable, Windows 10 with vulnerabilities)
+### Cluster Breakdown
 
-## Constraints:
+#### 1. Infrastructure Management Cluster
+- [Consul](https://www.consul.io/) - Service Discovery
+- [Nomad](https://www.nomadproject.io/) - Workload Orchestration
+- [Vault](https://www.vaultproject.io/) - Secrets Management
+- [Terraform](https://www.terraform.io/) - Infrastructure as Code
+- [Ansible](https://www.ansible.com/) - Configuration Management
 
-- Budget constrained by existing resources (32 GB RAM, 500 GB storage)
-- Limited by hardware performance for running multiple virtual machines simultaneously
-- Timeline to complete within the next two weeks
-- Familiarity with Linux systems and network configuration
+#### 2. Security and Monitoring Cluster
+- [Wazuh](https://wazuh.com/) or [Security Onion](https://securityonion.net/) - Security Monitoring
+- Additional Monitoring Tools
 
-## Risks:
+#### 3. Web and Application Cluster
+- Website Hosting
+- [Heimdall](https://github.com/linuxserver/Heimdall) - Dashboard
+- [Tailgate](https://github.com/silinternational/tailgate) - Access Management
+- [Windmill](https://www.windmill.dev/) - SOAR Platform
 
-- Resource limitations affecting VM performance [**SIGNIFICANT RISK**]
-- Incorrect firewall/network configuration exposing backend services [**SIGNIFICANT RISK**]
-- Overload of storage due to logging in Wazuh and WAF [MODEST RISK]
-- Delays in Wazuh deployment and configuration [MODEST RISK]
+## 🚀 Deployment Strategy
 
-## Assumptions:
+### Containerization Approach
+- Lightweight services: LXC Containers
+- Complex services: Virtual Machines
+- Docker/Podman for additional containerization
 
-- Existing Proxmox server will handle all required VMs
-- External internet access is available for updates and installations
-- ModSecurity will effectively mitigate most common attack vectors
-- Backend services will not require high bandwidth or high performance
+## 📂 Repository Structure
+```
+.
+├── ansible/                 # Ansible playbooks
+├── terraform/               # Terraform configuration files
+├── nomad/                   # Nomad job specifications
+├── consul/                  # Consul configuration
+├── vault/                   # Vault configuration
+├── monitoring/              # Monitoring tool configurations
+├── web/                     # Web application configurations
+└── README.md                # This file
+```
 
-## Project Scope
+## 🛠️ Provisioning and Management
 
-### In Scope:
+### Prerequisites
+- Proxmox VE installed
+- SSH access configured
+- Basic networking setup completed
 
-- Deploy WAF (ModSecurity), reverse proxy (Nginx), Wazuh server, and backend services in Proxmox
-- Create internal private network bridges for VM communication
-- Configure a hacking lab with Kali Linux and vulnerable machines (e.g., Metasploitable, vulnerable Windows 10)
+### Provisioning Steps
+1. Clone this repository
+2. Configure Terraform variables
+3. Initialize Consul/Nomad/Vault clusters
+4. Deploy monitoring infrastructure
+5. Set up web and application services
 
-### Out of Scope:
+## 🔒 Security Considerations
+- Implement network segmentation
+- Use Vault for secrets management
+- Regular security updates
+- Implement least privilege access
 
-- External penetration testing outside of the Proxmox environment
-- Cloud-based or hybrid security services integration
-- Handling production-level traffic (this is for a home lab setup)
+## 📈 Resource Allocation
+- Infrastructure Cluster: 8-12 GB RAM
+- Security Cluster: 12-16 GB RAM
+- Web/App Cluster: 8-12 GB RAM
 
-## Deliverables:
+## 🤝 Contributing
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-- Dedicated Wazuh server for real-time monitoring and alerting
-- Isolated internal backend services connected via Proxmox network bridges
-- Hacking lab environment for red team emulation
-- Atmoic red to emulate red team attacks
 
-## Tasks and Resource Allocation
-
-Resources have been allocated to 2 different machines due to ease of use and resource requirements
-
-### Proxmox Machine
-| Task | RAM Usage | Storage Usage | CPU Usage | Notes |
-|------|-----------|---------------|-----------|-------|
-| Install Wazuh Server | 4 GB | 30 GB | 2 cores | For security monitoring and alerting |
-| Create internal network bridges | N/A | N/A | N/A | Network configuration in Proxmox |
-| Vulnerable Windows 10 VM | 8 GB | 40 GB | 2 cores | For red team attack emulation |
-| **TOTAL** | **21 GB** | **135 GB** | **8 cores** | Within available resources |
-
-### Personal Machine
-| Task | RAM Usage | Storage Usage | CPU Usage | Notes |
-|------|-----------|---------------|-----------|-------|
-| Configure hacking lab (Kali Linux) | 4 GB | 20 GB | 1 core | Penetration testing and hacking tools |
-
-## Closing Checklist
-
-- [ ] All Deliverables Checked and Tested for Quality Requirements
-- [ ] Deliver Documentation for Architecture and Configuration (*If Required*)
-- [ ] Get Customer/Management/Stakeholder Sign-Off
-- [ ] Reassign Personnel, Dispose of Surplus Equipment/Materials, and Release Facilities
-- [ ] Document Project (*Problems, Lessons Learned, Etc.*)
-- [ ] Report Final Project Status and Outcome to Customer/Management/Stakeholders
-- [ ] Declare Project Completed
+## 🚧 Disclaimer
+This is a home lab setup. Ensure proper security measures and do not expose services directly to the internet without proper protection.
 
