@@ -29,7 +29,7 @@
 #### 3. Web and Application Cluster
 - Website Hosting
 - [Heimdall](https://github.com/linuxserver/Heimdall) - Dashboard
-- [Tailgate](https://github.com/silinternational/tailgate) - Access Management
+- [Tailgate](https://tailscale.com/) - Access Management
 - [Windmill](https://www.windmill.dev/) - SOAR Platform
 
 ## 🚀 Deployment Strategy
