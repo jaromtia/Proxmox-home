@@ -60,7 +60,7 @@
         <mxCell id="8plYKvpFI6W33-nFE-xe-27" value="" style="group" vertex="1" connectable="0" parent="1">
           <mxGeometry x="72.5" y="810" width="150" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="8plYKvpFI6W33-nFE-xe-17" value="Proxmox&lt;div&gt;&lt;br&gt;OPNsense&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Heimdall&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Ansible&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Terraform&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Tail Scale&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fillColor=#fff2cc;strokeColor=#d6b656;gradientColor=#ffd966;" vertex="1" parent="8plYKvpFI6W33-nFE-xe-27">
+        <mxCell id="8plYKvpFI6W33-nFE-xe-17" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Heimdall&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Ansible&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Terraform&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Tail Scale&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fillColor=#fff2cc;strokeColor=#d6b656;gradientColor=#ffd966;" vertex="1" parent="8plYKvpFI6W33-nFE-xe-27">
           <mxGeometry x="15" y="30" width="120" height="210" as="geometry" />
         </mxCell>
         <mxCell id="8plYKvpFI6W33-nFE-xe-22" value="Management VLAN (10)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rounded=0;glass=0;shadow=0;" vertex="1" parent="8plYKvpFI6W33-nFE-xe-27">
